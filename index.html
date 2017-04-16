@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<link rel="shortcut icon" href="http://panamajoe.mooo.com:8000/favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" href="http://panamajoe.mooo.com:8000/apple-touch-icon.png" />
+	<link rel="apple-touch-icon" sizes="57x57" href="http://panamajoe.mooo.com:8000/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="http://panamajoe.mooo.com:8000/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="http://panamajoe.mooo.com:8000/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="http://panamajoe.mooo.com:8000/apple-touch-icon-144x144.png" />
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content = "height = device-height, width = 320, user-scalable = no" /> 
+	<title>Garage Door Opener</title>
+	<script type="text/javascript" src="/webiopi.js"></script>
+	<script type="text/javascript">
+	function init() {
+		var button;
+			
+		button = webiopi().createButton("bt_GD1", "Garage Door 1", garagedoor1);
+		$("#button1").append(button);
+		
+		button = webiopi().createButton("bt_GD2", "Garage Door 2", garagedoor2);
+		$("#button2").append(button);
+		
+		button = webiopi().createButton("bt_stream", "Stream Pi Camera", stream_camera);
+		$("#button3").append(button);
+		
+	}
+	
+	function garagedoor1() {
+		webiopi().callMacro("toggle_garagedoor1");
+	}
+		
+	function garagedoor2() {
+		webiopi().callMacro("toggle_garagedoor2");
+	}
+
+	function stream_camera() {
+		window.location.href = "stream.html";
+	}
+	
+	webiopi().ready(init);
+		
+	</script>
+	<style type="text/css">
+		button {
+			margin: 10px 10px 10px 10px;
+			width: 300px;
+			height: 50px;
+			font-size: 24pt;
+			font-weight: bold;
+			color: black;
+		}
+	</style>
+</head>
+<body>
+	<div id="content" align="center">
+		<div id="button1"></div>
+		<div id="button2"></div>
+		<div id="button3"></div>
+	</div>
+
+</body>
+
+<footer>
+	<div id="content" align="center">
+	    <p>iPhone Version. &copy; Joseph Andrews, 2013</p>
+        </div>
+</footer>
+</html>
